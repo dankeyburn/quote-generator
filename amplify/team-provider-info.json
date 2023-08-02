@@ -10,6 +10,20 @@
       "StackName": "amplify-quotegenerator-dev-161246",
       "StackId": "arn:aws:cloudformation:us-east-1:610087247859:stack/amplify-quotegenerator-dev-161246/29feb600-30b0-11ee-981c-0e3bf4e9ce15",
       "AmplifyAppId": "dvubka61porb8"
+    },
+    "categories": {
+      "auth": {
+        "quotegeneratorf02027de": {}
+      },
+      "function": {
+        "quoteLambda": {
+          "deploymentBucketName": "amplify-quotegenerator-dev-161246-deployment",
+          "s3Key": "amplify-builds/quoteLambda-655a3248374643455167-build.zip"
+        }
+      },
+      "api": {
+        "quotegenerator": {}
+      }
     }
   }
 }
