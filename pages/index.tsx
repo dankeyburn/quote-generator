@@ -76,20 +76,23 @@ export default function Home() {
           queryName: "LIVE",
         },
       });
-      // console.log("response", response);
+      console.log("response", response);
+      // setNumberOfQuotes();
 
       // Create type guards
       if (!isGraphQLResultForquotesQueryName(response)) {
         throw new Error("Unexpected response from API.graphql");
       }
+
       if (!response.data) {
         throw new Error("Response data is undefined");
       }
+
       const receivedNumberOfQuotes =
         response.data.quotesQueryName.items[0].quotesGenerated;
       setNumberOfQuotes(receivedNumberOfQuotes);
     } catch (error) {
-      console.log("error getting quote data: ", error);
+      console.log("error getting quote data", error);
     }
   };
 
