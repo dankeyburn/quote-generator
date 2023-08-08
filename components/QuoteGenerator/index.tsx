@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-// Material UI imports
+// Material UI Imports
 import { Backdrop, Fade, Modal } from "@mui/material";
-import { styled } from "styled-components";
 import {
   ModalCircularProgress,
   QuoteGeneratorModalCon,
@@ -10,9 +9,9 @@ import {
   QuoteGeneratorSubTitle,
   QuoteGeneratorTitle,
 } from "./QuoteGeneratorElements";
-import { ImageBlobCon } from "../animations/AnimationElement";
-import { ImageBlob } from "../animations/ImageBlob";
+import ImageBlob from "../animations/ImageBlob";
 import AnimatedDownloadButton from "../animations/AnimatedDownloadButton";
+import { ImageBlobCon } from "../animations/AnimationElement";
 
 interface QuoteGeneratorModalProps {
   open: boolean;
@@ -25,7 +24,7 @@ interface QuoteGeneratorModalProps {
 
 const style = {};
 
-const QuoteGenerator = ({
+const QuoteGeneratorModal = ({
   open,
   close,
   processingQuote,
@@ -33,8 +32,8 @@ const QuoteGenerator = ({
   quoteReceived,
   setQuoteReceived,
 }: QuoteGeneratorModalProps) => {
-  const wiseDevQuote = "'If you can center a wrench, you can center a div.'";
-  const wiseDevQuoteAuthor = "-a bruised software engineer";
+  const wiseDevQuote = '"If you can center a div, anything is possible."';
+  const wiseDevQuoteAuthor = "- a wise senior software engineer";
 
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
 
@@ -72,7 +71,9 @@ const QuoteGenerator = ({
       onClose={close}
       closeAfterTransition
       BackdropComponent={Backdrop}
-      BackdropProps={{ timeout: 500 }}
+      BackdropProps={{
+        timeout: 500,
+      }}
     >
       <Fade in={open}>
         <QuoteGeneratorModalCon sx={style}>
@@ -86,7 +87,7 @@ const QuoteGenerator = ({
                 </QuoteGeneratorTitle>
                 <QuoteGeneratorSubTitle style={{ marginTop: "20px" }}>
                   {wiseDevQuote}
-                  <br />
+                  <br></br>
                   <span style={{ fontSize: 26 }}>{wiseDevQuoteAuthor}</span>
                 </QuoteGeneratorSubTitle>
               </>
@@ -97,7 +98,7 @@ const QuoteGenerator = ({
               <>
                 <QuoteGeneratorTitle>Download your quote!</QuoteGeneratorTitle>
                 <QuoteGeneratorSubTitle style={{ marginTop: "20px" }}>
-                  See a preview;
+                  See a preview:
                 </QuoteGeneratorSubTitle>
                 <ImageBlobCon>
                   <ImageBlob quoteReceived={quoteReceived} blobUrl={blobUrl} />
@@ -112,4 +113,4 @@ const QuoteGenerator = ({
   );
 };
 
-export default QuoteGenerator;
+export default QuoteGeneratorModal;
