@@ -197,7 +197,7 @@ export default function Home() {
 
         {/* Footer */}
         <FooterCon>
-          <>Quotes Generated: {numberOfQuotes}</>
+          {/* <>Quotes Generated: {numberOfQuotes}</> */}
           <br />
           Developed by{" "}
           <FooterLink
